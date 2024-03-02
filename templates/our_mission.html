@@ -1,0 +1,29 @@
+<!-- our_mission.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Babel Bridge - Our Mission</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    {% include 'navbar.html' %}
+    <div class="container" style="margin-top: 100px;">
+        <h1>Our Mission</h1>
+        <p>At Babel Bridge, our mission is twofold:</p>
+        <ol>
+            <li><strong>Empower Language Diversity:</strong> We strive to preserve and promote the rich linguistic heritage of Southeast Asian languages through technology.</li>
+            <li><strong>Enhance AI with Real Voices and Texts:</strong> By crowd-sourcing language data in various formats — be it audio, video, text files, PDFs, or documents — we aim to train more inclusive and representative AI systems. These systems will understand and speak as diversely as our communities do, recognizing the wealth of written and spoken nuances.</li>
+        </ol>
+        <p>We believe that every voice matters, and every word contributes to our collective knowledge. Join us in our journey to bring the nuances of Southeast Asian languages to the forefront of the digital age, making technology accessible and beneficial for all.</p>
+        <p>Together, we can build a future where technology speaks every language of the human heart, embracing the full spectrum of human expression, from the written word to the spoken word.</p>
+        <a href="/login" class="btn btn-primary">Join Our Mission</a>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

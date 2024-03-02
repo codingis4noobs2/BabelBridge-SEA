@@ -1,0 +1,71 @@
+<!-- pending_approvals.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Babel Bridge - Pending</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    {% include 'navbar.html' %}
+    {% block content %}
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Pending Approvals</h2>
+        <div class="list-group">
+            {% for filename, info in files.items() %}
+            <div class="list-group-item d-flex justify-content-between align-items-center">
+                <div class="file-preview">
+                    <strong>{{ filename }}</strong>
+                    {% if filename.endswith('.pdf') or filename.endswith('.doc') or filename.endswith('.docx') %}
+                    <a href="{{ url_for('static', filename='pending_approvals/' ~ filename) }}" target="_blank">View
+                        Document</a>
+                    {% elif filename.endswith('.mp3') or filename.endswith('.wav') %}
+                    <audio controls>
+                        <source src="{{ url_for('static', filename='pending_approvals/' ~ filename) }}"
+                            type="audio/mpeg">
+                    </audio>
+                    {% elif filename.endswith('.mp4') %}
+                    <video width="320" height="240" controls>
+                        <source src="{{ url_for('static', filename='pending_approvals/' ~ filename) }}"
+                            type="video/mp4">
+                    </video>
+                    {% endif %}
+                    {% if filename.endswith('.pdf') or filename.endswith('.doc') or filename.endswith('.docx') %}
+                    <a href="/show_text/{{ filename }}" class="btn btn-info btn-sm">Show Text</a>
+                    {% elif filename.endswith('.mp3') or filename.endswith('.wav') or filename.endswith('.mp4') %}
+                    <a href="/transcribe/{{ filename }}" class="btn btn-info btn-sm">Transcribe</a>
+                    <h5>Transcribes can take up 10 minutes</h5>
+                    {% endif %}
+                </div>
+                <div class="voting-controls">
+                    <span>Votes: {{ info.votes }}</span>
+                    <form action="/vote" method="post" class="d-inline">
+                        <input type="hidden" name="filename" value="{{ filename }}">
+                        <input type="hidden" name="vote_type" value="approve">
+                        <button type="submit" class="btn btn-outline-success btn-sm"><i
+                                class="fa fa-check">+</i></button>
+                    </form>
+                    <form action="/vote" method="post" class="d-inline">
+                        <input type="hidden" name="filename" value="{{ filename }}">
+                        <input type="hidden" name="vote_type" value="reject">
+                        <button type="submit" class="btn btn-outline-danger btn-sm">-<i
+                                class="fa fa-times"></i></button>
+                    </form>
+                </div>
+            </div>
+            {% else %}
+            <p>No files pending approval.</p>
+            {% endfor %}
+        </div>
+    </div>
+    {% endblock %}
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!-- contribute.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Babel Bridge - Contribute</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    {% include 'navbar.html' %}
+    <div class="container" style="margin-top: 100px;">
+        <h2>Contribute</h2>
+        <form action="/contribute" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="inputType">Type of Input</label>
+                <select class="form-control" id="inputType" name="inputType" onchange="updateFileInput()">
+                    <option value="audio">Audio</option>
+                    <option value="video">Video</option>
+                    <option value="pdf">PDF</option>
+                    <option value="doc">DOC</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="file">Upload File</label>
+                <input type="file" class="form-control-file" id="file" name="file">
+            </div>
+            
+            <script>
+            function updateFileInput() {
+                var inputType = document.getElementById("inputType").value;
+                var fileInput = document.getElementById("file");
+                
+                if (inputType === "audio") {
+                    fileInput.setAttribute("accept", "audio/*");
+                } else if (inputType === "video") {
+                    fileInput.setAttribute("accept", "video/*");
+                } else if (inputType === "pdf") {
+                    fileInput.setAttribute("accept", ".pdf");
+                } else if (inputType === "doc") {
+                    fileInput.setAttribute("accept", ".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document");
+                }
+            }
+            </script>
+            <h3>Please do not files > 50mb as this is a Prototype</h3>
+            <h4>Do not upload Scanned Copies, As they will be Rejected</h4>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

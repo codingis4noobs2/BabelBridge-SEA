@@ -1,0 +1,52 @@
+<!-- learn.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Babel Bridge - Learn</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    {% include 'navbar.html' %}
+    <div class="container" style="margin-top: 100px;">
+        <h2>Basic English to SEA Language Translations</h2>
+        <p>Start your journey into SEA languages with these common words and phrases:</p>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">English</th>
+                    <th scope="col">SEA Language</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Hello</td>
+                    <td>Xin chào (Vietnamese)</td>
+                </tr>
+                <tr>
+                    <td>Thank you</td>
+                    <td>Terima kasih (Malay/Indonesian)</td>
+                </tr>
+                <tr>
+                    <td>Yes</td>
+                    <td>Oo (Tagalog)</td>
+                </tr>
+                <tr>
+                    <td>No</td>
+                    <td>Tidak (Indonesian)</td>
+                </tr>
+                <tr>
+                    <td>Goodbye</td>
+                    <td>Selamat tinggal (Malay/Indonesian)</td>
+                </tr>
+            </tbody>
+        </table>
+        <h6>Just a prototype, It can be made more accessible(Adopted from Duolingo) and classified accross SEA languages</h6>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

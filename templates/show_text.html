@@ -1,0 +1,17 @@
+<!-- show_text.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Babel Bridge - Show Text</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"></head>
+<body>
+    {% include 'navbar.html' %}
+    <div class="container">
+        <h2>Text Content of {{ filename }}</h2>
+        <p>{{ text }}</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+annotated-types==0.6.0
+assemblyai==0.22.0
+blinker==1.7.0
+click==8.1.7
+Faker==23.3.0
+Flask==3.0.2
+itsdangerous==2.1.2
+lxml==5.1.0
+pydantic==2.6.3
+pydantic_core==2.16.3
+PyMuPDF==1.23.26
+PyMuPDFb==1.23.22
+python-docx==1.1.0
+python-dotenv==1.0.1
+websockets==12.0
+Werkzeug==3.0.1
